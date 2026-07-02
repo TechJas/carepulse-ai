@@ -56,6 +56,21 @@ A platform that uses AI to:
 
 ---
 
+## Frontend (Live)
+
+The MVP frontend is built in `frontend/`:
+
+```bash
+cd frontend
+npm install
+npm run dev      # → http://localhost:5173
+npm run build    # → dist/
+```
+
+Includes: ICU dashboard with ranked patient cards, patient detail panel, alert acknowledgement workflow, dark mode, filtering/search.
+
+---
+
 ## Tech Stack
 
 *Planned — MVP phase*
