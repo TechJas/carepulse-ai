@@ -69,6 +69,18 @@ npm run build    # → dist/
 
 Includes: ICU dashboard with ranked patient cards, patient detail panel, alert acknowledgement workflow, dark mode, filtering/search.
 
+### Backend API
+
+```bash
+docker compose up -d       # Start PostgreSQL + API
+# Or manually:
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload  # → http://localhost:8000/docs (Swagger UI)
+```
+
+18 REST endpoints — auth, alerts CRUD, patient data, dashboard summary, escalation.
+
 ---
 
 ## Tech Stack

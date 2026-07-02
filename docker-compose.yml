@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: carepulse
+      POSTGRES_PASSWORD: carepulse
+      POSTGRES_DB: carepulse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://carepulse:carepulse@db:5432/carepulse
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
