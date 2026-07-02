@@ -2,9 +2,10 @@ import { useTheme } from '../context/ThemeContext'
 
 interface HeaderProps {
   nurseName: string
+  onLogout?: () => void
 }
 
-export function Header({ nurseName }: HeaderProps) {
+export function Header({ nurseName, onLogout }: HeaderProps) {
   const { theme, toggle } = useTheme()
 
   return (
@@ -36,6 +37,12 @@ export function Header({ nurseName }: HeaderProps) {
           </div>
           <span className="text-sm text-text-primary dark:text-text-primary-dark">{nurseName}</span>
         </div>
+
+        {onLogout && (
+          <button onClick={onLogout} className="text-xs text-text-secondary dark:text-text-secondary-dark hover:text-text-primary dark:hover:text-text-primary-dark transition">
+            Logout
+          </button>
+        )}
       </div>
     </header>
   )
